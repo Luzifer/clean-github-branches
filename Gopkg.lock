@@ -2,6 +2,14 @@
 
 
 [[projects]]
+  digest = "1:52b6c8beb19a31fe7b40b23c9b694caf4213cfa3d6cce711cd0636db68ce67aa"
+  name = "github.com/Luzifer/go_helpers"
+  packages = ["duration"]
+  pruneopts = "NUT"
+  revision = "4e368ddb27c0a08a0c84e5ceac52d57b464bffce"
+  version = "v2.7.0"
+
+[[projects]]
   digest = "1:3c2b6707179ff866ca06c5eecd544c9079a6ec35d735031a1bf61abfff336186"
   name = "github.com/Luzifer/rconfig"
   packages = ["."]
@@ -32,6 +40,14 @@
   packages = ["query"]
   pruneopts = "NUT"
   revision = "53e6ce116135b80d037921a7fdd5138cf32d7a8a"
+
+[[projects]]
+  branch = "master"
+  digest = "1:071a57a67bde66b0e6438ffee4599ef99532a0e29de3ea12926b5438608f90a6"
+  name = "github.com/leekchan/gtf"
+  packages = ["."]
+  pruneopts = "NUT"
+  revision = "79e3a68ab435edb72c6490289a33ef8bedcee15a"
 
 [[projects]]
   digest = "1:5cf3f025cbee5951a4ee961de067c8a89fc95a5adabead774f82822efabab121"
@@ -134,6 +150,7 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "github.com/Luzifer/go_helpers/duration",
     "github.com/Luzifer/rconfig",
     "github.com/google/go-github/github",
     "github.com/pkg/errors",

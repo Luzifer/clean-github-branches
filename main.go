@@ -10,6 +10,7 @@ import (
 	"sync"
 	"time"
 
+	"github.com/Luzifer/go_helpers/duration"
 	"github.com/Luzifer/rconfig"
 
 	"github.com/google/go-github/github"
@@ -17,6 +18,10 @@ import (
 	log "github.com/sirupsen/logrus"
 	"golang.org/x/oauth2"
 )
+
+const humanizeTemplate = `{{if gt .Years 0}}{{.Years}}y{{end}}` +
+	`{{if gt .Days 0}}{{.Days}}d{{end}}` +
+	`{{if gt .Hours 0}}{{.Hours}}h{{end}}`
 
 var (
 	cfg = struct {
@@ -277,6 +282,8 @@ func processRepo(ctx context.Context, logger *log.Entry, client *github.Client, 
 			float64(time.Since(b.GetCommit().GetCommit().GetAuthor().GetDate())),
 			float64(time.Since(b.GetCommit().GetCommit().GetCommitter().GetDate())),
 		))
+		d, _ := duration.CustomHumanizeDuration(branchLastModified, humanizeTemplate)
+		branchLogger = branchLogger.WithField("age", d)
 
 		// Check all PRs whether they match the branch (head) and are merged
 		hasValidMerge, hasOpenPR := analysePullRequests(branchLogger, prs, b)

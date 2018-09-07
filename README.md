@@ -28,8 +28,8 @@ Usage of clean-github-branches:
       --version                     Prints current version and exits
 
 $ clean-github-branches -r '^[lL]uzifer(-docker|-ansible|)/'
-WARN[0013] Stale branch found                            ahead=1 behind=1 branch=develop dry-run=true repo=luzifer-docker/etherpad-lite
-INFO[0013] Done.
+WARN[0012] Stale branch found                            age=2y174d23h ahead=1 behind=1 branch=develop dry-run=true repo=luzifer-docker/etherpad-lite
+INFO[0012] Done.
 ```
 
 All parameters causing destructive actions are set to sane defaults: By default a `dry-run` is done which prevents any deletion. Also `delete-stale` is disabled as it might cause data loss as the branch is not merged and all commits in it will be lost.
